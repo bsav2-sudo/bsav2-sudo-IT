@@ -12,6 +12,8 @@ For a while in starting my job as an IT Technician - my first significant intere
 
 In this blog, I want to look at the process and also the management of a switch by actually getting hands on with a <code>HP ProCurve Switch</code> and start to get to grips with some key commands for the HP hardware. Now obviously Cisco is the dominant force in Networking Equipment so maybe in the future I might have to invest in a small Cisco Switch to experience the management on one of those - but hey, this is a really good starting place. So without further ado - lets get started!
 
+## Blog Entry - 11/02/25
+
 ## HP Procurve - Collecting the Tools
 
 Before I can even think about getting the switch and plugging into it - there's two bits of equipment I'm going to need to be able to access it. Now beacause the switch has been fully reset - I am going to have a guess and say that the web management feature is going to be **disabled** so I'm going to need to access the switch by its console port. Now the switch I'm using is the one just below:
@@ -67,3 +69,54 @@ As the name suggests - SHOW looks at information from the switch such as device 
 Cool - that's all the show commands I want to show (no pun intended I promise) - so now lets look at some useful commands that can be used for the switch.
 
 ### USEFUL
+
+These commands are some of the useful ones that I have found when doing my lab - they look mostly at the management of the switch such as setting passwords and enabling services such as web management and SSH/Telnet. Down below are the commands:
+
+<img width="625" alt="CONFIG" src="https://github.com/user-attachments/assets/83e0902d-bd36-4fcf-92d5-eec92001247e" />
+
+> <code>conf</code> - puts the CLI into configuration mode.
+
+<img width="1439" alt="LOG - Most Recent Events" src="https://github.com/user-attachments/assets/f9ac4886-0e79-450b-aa73-d1c48bb6bd86" />
+
+> <code>log</code> - shows the most recent logs from the switch.
+
+<img width="1436" alt="NO - web management" src="https://github.com/user-attachments/assets/60ceaee4-7d95-427c-9611-093696c1940e" />
+
+> <code>no telnet-server / web-management</code> - disables web management and/or telnet services for the switch - to re-enable it is a case of typing the service in conf to open it again.
+
+<img width="1439" alt="IP - enable ssh" src="https://github.com/user-attachments/assets/e8394480-3a30-44f1-9a5a-c035b6c7bbf3" />
+
+> <code>ip ssh</code> - enables SSH service on the switch - to disable command would be <code>no ip ssh</code>.
+
+<img width="1191" alt="SET - manager password" src="https://github.com/user-attachments/assets/6e0892c5-9d5f-4783-9469-05256fd2bdbb" />
+
+> <code>set password manager</code> - sets the password for manager - replacing manager with operator will set a password for operator - used when logging into switch.
+
+### Vlan's
+
+The last bit of the lab for today I want to do is VLAN's - seeing as though they are a major part in making network more organised and logically group devices on the Ethernet Layer (Layer 2 on the OSI model), I want to see how I can create a VLAN and also "tag" it to some ports - this is where the HP Procurves differ from the Cisco switches as the naming for putting VLAN's on a port on a HP switch is called "tagging" and "untagging" where as Cisco calls it "add" - wish they could be the same but hey ho. Lets get started.
+
+<img width="1439" alt="VLAN - show" src="https://github.com/user-attachments/assets/bc0c135f-06f7-4fc8-9e47-91f49ce209ec" />
+
+> <code>show vlan</code> - currently shows what VLAN's are on the switch - as you can see there is only one which is the default VLAN.
+
+Now that I can see what VLAN's are already on the switch its time to make one and add it to some ports - below is a screenshot of how I made a new VLAN and added it to some ports.
+
+<img width="1151" alt="VLAN - creation process" src="https://github.com/user-attachments/assets/8a64187f-f401-44ad-bd3c-26af303e9ff3" />
+
+The process for creating it goes like this:
+
+1. Enter into config mode (already did this but didn't realise until error came up!)
+2. Create a new VLAN with an ID number
+3. Name the VLAN
+4. Tag the VLAN to Port 1
+5. Untag the VLAN to Port Ranges 10-20
+6. Exit the VLAN configuration
+7. Exit the Configuration Mode
+8. Run the Show VLAN command to see that the process has worked correctly - which it has!
+
+Obviously the tagging and untagging of ports can come later on but it's good to see it in action
+
+<img width="1085" alt="VLAN - info about VLAN" src="https://github.com/user-attachments/assets/9a034f48-d9a4-48b5-9cc0-df1ff928c12e" />
+
+From the screenshot above as well I can see information about VLAN 23 and see that it is tagged to Port 1 and Untagged on Ports 10-20, amazing - that's all for today - I want to make sure what I have learnt today has been retained so will be worth going over the commands again to refresh!
