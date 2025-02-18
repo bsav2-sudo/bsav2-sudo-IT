@@ -1,6 +1,6 @@
 # 2. Databases - SQL Databases
 
-![avq6683ud](https://github.com/user-attachments/assets/44799ffd-eff6-41a2-a9b4-7da0bd0d1200)
+![Sql_data_base_with_logo svg](https://github.com/user-attachments/assets/4f4b3513-63b5-4c58-b611-91c31fb05673)
 
 ### Skills Utilised
 
