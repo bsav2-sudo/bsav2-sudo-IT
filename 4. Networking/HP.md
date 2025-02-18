@@ -120,3 +120,27 @@ Obviously the tagging and untagging of ports can come later on but it's good to 
 <img width="1085" alt="VLAN - info about VLAN" src="https://github.com/user-attachments/assets/9a034f48-d9a4-48b5-9cc0-df1ff928c12e" />
 
 From the screenshot above as well I can see information about VLAN 23 and see that it is tagged to Port 1 and Untagged on Ports 10-20, amazing - that's all for today - I want to make sure what I have learnt today has been retained so will be worth going over the commands again to refresh!
+
+## Blog Entry - 12/02/25
+
+Okay time to refresh the commands I learnt yesterday - one of the ones I forgot to mention was the locate light which can be enabled on the switch - the command <code>chassislocate blink *</code> will flash the locate button on the switch for however many minutes specified (using the * as the argument). Nice handy feature in case I need to show someone which switch to be looking at.
+
+Now to refresh these commands - I'm going to run them and provide the screenshots to show if I remembered them correctly or not...
+
+<img width="817" alt="SHOW - port information" src="https://github.com/user-attachments/assets/35f87db2-7870-4e7b-8245-289c0ddbb44f" />
+
+> <code>Showing the Port Information for Port 5</code>
+
+<img width="848" alt="Test - Assigning VLAN" src="https://github.com/user-attachments/assets/8a278e2a-5026-47e8-98ad-fe5d21e40073" />
+
+> <code>Making a new VLAN and tagging it to a Port</code>
+
+<img width="1334" alt="Test - Delete VLAN" src="https://github.com/user-attachments/assets/f3c79cb8-042a-4da0-ab4b-fbf6a30fd855" />
+
+> <code>Deleting a VLAN</code>
+
+<img width="1439" alt="Test - Management Methods" src="https://github.com/user-attachments/assets/507ed3c6-2da5-4299-8545-a3cef22763c0" />
+
+> <code>Managing the services running on the switch</code>
+
+Awesome I remembered them - obviosuly I'm going to need to keep practicing them but in time it should come to mind fairly easily - in the next blog I hope to start looking at some more commands for the switch looking more into the features. Thnaks for reading and see you on the next one!
