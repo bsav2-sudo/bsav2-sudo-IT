@@ -97,11 +97,95 @@ This time we've got multiple statuses that I want to order from the status collu
 
 Even thoough this is simple I love how the queries can be manipulated to be able to view the data more easily and not have to go searching for it - probably why I also like KQL from doing my Microsoft Learn training on Sentiel!
 
-<img width="839" alt="ORDER - By Last Name DESC and First ASC" src="https://github.com/user-attachments/assets/d65ec5a8-fb36-4b6a-b215-4d6f5949d213" />
+<img width="1439" alt="ORDER - By Last Name DESC and First ASC" src="https://github.com/user-attachments/assets/26117b02-c744-4bc0-b2ec-745952611e9d" />
 
 Order by the Last Name in a Descending order and First Name in an Ascending order - yep bit of a brain teaser for me as well but looking at it in the screenshot it makes more sense.
 
 Cool that is it for today but I'm quite happy with what I've learnt from these commands and can't wait to explore some more tomorrow.
 
 ## Blog Entry - 06/02/25
+
+This session I want to learn some more commands I can use in SQL - just to give myself a bit more understanding of all the commands in SQL and how they can be used for multiple scenarios.
+
+## Basic SQL Commands - AND
+
+The and commands lets me add more arguments to an SQL Query such as I want to SELECT one table AND another - very useful instead of having to run multiple queries I can just run one, here's some examples of the AND command being used in mySQL lab:
+
+<img width="482" alt="AND - Operator" src="https://github.com/user-attachments/assets/52136294-29d2-49ba-8f2f-c12e1e7ed5b6" />
+
+In these query there are multiple steps:
+
+1. SELECT Customer Name, Country and State
+2. FROM Customers Table
+3. WHERE the Country is USA and State is Californaia (CA)
+
+Nice way to be able to search for something very specific within the SQL Database.
+
+<img width="397" alt="AND - NULL" src="https://github.com/user-attachments/assets/3ec74dd3-c2a1-4675-b2e2-7b4b7116b2b5" />
+
+The AND command can be also used for NULL values and will return the NULL values.
+
+## Basic SQL Commands - LIMIT
+
+The LIMIT command will let me limit the amount of results that are returned from the SQL query. Looking at the SQL query execution order that I have been able to find - I can see that the LIMIT command is the last one in the chian of command so we will get all the results from previous commands such as SELECT and FROM before it gets filtered with the LIMIT command:
+
+<img width="414" alt="image-1-order-blog" src="https://github.com/user-attachments/assets/57a0e670-bb8b-435e-9c02-f4de53166616" />
+
+Time to use the LIMIT within my lab:
+
+<img width="542" alt="LIMIT" src="https://github.com/user-attachments/assets/9febe18b-359b-4c5f-84bb-6d7f39a8b3f0" />
+
+This query gives me back the first 5 results as I have set the LIMIT argument to be 5. Nice way of being able to refine results to only lets say the first 5...
+
+<img width="503" alt="LIMIT - Second Set of Row" src="https://github.com/user-attachments/assets/c9cd77a3-8622-409f-ba98-e84f0ca82e0e" />
+
+This query I have set the LIMIT argument to be 10,10 which means I will get 10 rows in the first and 10 results in the second set.
+
+## Basic SQL Commands - WHERE
+
+The WHERE command will let me refine my SQL query to only look for specific details within a table - for example it could be I only want people named John to be in the results of the query or I only want people with the Office Codes between 1 and 5 to be returned in the results. Lets start with some of these queries and see what they look like in action:
+
+<img width="409" alt="WHERE - BETWEEN" src="https://github.com/user-attachments/assets/f76b5031-63f8-489f-8c77-7ed71f68c4ce" />
+
+In thsi query I have asked for the Office Codes to be between 1 and 3 where is says <code>WHERE officeCode BETWEEN 1 AND 3</code>. Cool I can already see this is going to be a really helpful command, but of course there is more ways to use it.
+
+<img width="523" alt="WHERE - Clause" src="https://github.com/user-attachments/assets/e63a1687-6b51-4c22-8f87-981030e264c8" />
+
+I can use it as a clause to only return on single value - in this case anyone who has the Job Title of Sales Rep.
+
+<img width="385" alt="WHERE - Comparison Less or Equal To" src="https://github.com/user-attachments/assets/fef557f0-3581-40a5-a341-e131b23701a1" />
+
+I can also use it with mathmatical equations such as being less than or equal to.
+
+<img width="573" alt="WHERE - Two Clauses and ORDER" src="https://github.com/user-attachments/assets/6ca6950a-24cb-4be3-83f8-1a95bdcdeea5" />
+
+Using two clauses to ask whether they are in Office Code 1 or have a JOb Title of Sales Rep and then Order them by Job Title.
+
+<img width="356" alt="WHERE - Wildcard Match" src="https://github.com/user-attachments/assets/e38e7eed-c184-4129-8343-
+6c93b30ce199" />
+
+And one that I find really cool is the wildcard match - where using the argument %argument will return with ones similar as you can see from the query above!
+
+A little cool one is being able to searhc for NULL values - quite a simple one by using the WHERE operand and then stating if something is a NULL or not NULL value as you can see from the screenshots below:
+
+<img width="594" alt="IS NULL" src="https://github.com/user-attachments/assets/ca413176-e8f5-401f-8b6a-84ab332f7534" />
+
+<code>Where IS NULL</code>
+
+<img width="1439" alt="IS NOT NULL" src="https://github.com/user-attachments/assets/fa2fc887-87f5-4e4a-a774-b6404f3f0158" />
+]<code>Where ISN'T NULL</code>
+
+The final thing in the WHERE operand comes in really well is looking for values NOT BETWEEN and NOT IN a certain range of values which are shown below - very cool:
+
+<img width="539" alt="NOT BETWEEN" src="https://github.com/user-attachments/assets/1a8d739b-ea1d-42c6-ab99-0a324825bdd6" />
+
+<code>Values NOT BETWEEN</code>
+
+<img width="388" alt="NOT IN" src="https://github.com/user-attachments/assets/63c808ea-aea8-4dd5-92c0-5a2f7866b141" />
+
+<code>Values NOT IN</code>
+
+Cool that is all for today - very happy with my progress so far and lets see what the next day brings.
+
+## Blog Entry - 07/02/25
 
