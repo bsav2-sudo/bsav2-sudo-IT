@@ -189,3 +189,86 @@ Cool that is all for today - very happy with my progress so far and lets see wha
 
 ## Blog Entry - 07/02/25
 
+## Basic SQL Commands - Creating a Table
+
+Now that I've seen how I can search SQL databases using SQL queries - I think I should take a look at how to make tables within an SQL database using the SQL CLI Client and see how it is done. The process is much more simpler than I first expected - there is just a few things that I need to know:
+
+1. What I want the name of the table to be
+2. What the collumns will be called
+3. What Data Types will be in each collumn
+4. A Primary Key
+
+So let me look at one that I'm going to create:
+
+<img width="357" alt="CREATE - Creating Tables" src="https://github.com/user-attachments/assets/e8ad6495-2b98-44bc-992a-6651f00c1ab3" />
+
+So in the first command - I've set the following:
+
+1. Table will be called members
+2. Collumns will be called member_id and name
+3. member_id = Integer that Auto Increments, name is a variable character that has a max count of 100
+4. Primary Key will be member_id
+
+Now that I have completed that I can start putting information into this table - to do this I use the commmand INSERT TO and then define the table(collumn) as shown in the screenshot below:
+
+<img width="550" alt="INSERT INTO - adding to table" src="https://github.com/user-attachments/assets/a4d5146d-c9f6-4f9c-a89b-f10fcd82c8d5" />
+
+If I now do a SELECT FROM on these tables I should see that this information has been added:
+
+<img width="371" alt="CREATE - Tables updated" src="https://github.com/user-attachments/assets/32666cad-cc8c-4475-94e2-a03026c42f27" />
+
+Waheeyyy nice and simple I think - todays entry is only a short one as I've been busy all day but it's good to find a little bit of time to keep looking at SQL and how I can use it. 
+
+## Blog Entry - 08/02/25
+
+## Basic SQL Commands - Creating a Database
+
+In this entrty - I want to look more at the tables and more importantly how to actually create a Database to store all of the tables within. As well as this it would also be good to get a look and use the SQL Workbench interface as everything up to now has been done through the CLI client so will be worth opening the Workbench and working through that interface. But first databases!
+
+One of the commands that I have accidently skipped over is how to actually set a database that I want to work on - this is a simple command just simply typing USE *database name* will tell the SQL server which database I want to use and select it for me:
+
+<img width="280" alt="USE - Setting Database" src="https://github.com/user-attachments/assets/e51cf8ef-1539-4138-95b2-154325514a17" />
+
+Now to creating a database - through the CLI the command is very simple - the only argument required is what the name of the database will be - the command CREATE DATABASE will create it as shown below:
+
+<img width="714" alt="CREATE - Making new DB" src="https://github.com/user-attachments/assets/f3a1dd60-2478-4202-b677-c3a76d9b9df5" />
+
+But what about if I want to delete it - easy using the command DROP DATABASE and specifying which database I want to drop:
+
+<img width="314" alt="DROP - Delete Database" src="https://github.com/user-attachments/assets/804955cd-3e9b-4e27-bb3b-3007e4f06971" />
+
+A very brief look but that is at least the basics of being able to create a database, now let's look at the SQL Workbench interface.
+
+## SQL Workbench Interface
+
+SQL Workbench is a GUI so it is easier at least for me to visually see what is going on when I am sending queries from the CLI to the server. I just want to take some time to explore the application just to see what it is about and anything that is of interest to me:
+
+<img width="1439" alt="Data Import and Export" src="https://github.com/user-attachments/assets/a42157ee-ac85-456e-8264-a9e1fc4c2984" />
+
+<code>Being able to import and export data</code>
+
+<img width="1439" alt="Perfromance Dashboard" src="https://github.com/user-attachments/assets/7b8d7519-830f-426a-806a-8db10cdfe979" />
+
+<code>SQL Server Performance Dashboard</code>
+
+<img width="1439" alt="Server Status" src="https://github.com/user-attachments/assets/6c425827-2dd5-4f89-be12-b38268246704" />
+
+<code>Status of SQL Server</code>
+
+Some very useful tools already from what I can see - but let me see what else I can do - such as being able to create a database in this environment:
+
+The process in the GUI is quite simple - simply going through the Database wizard I can go through the process to make a new database and choose what options I want to apply to it:
+
+<img width="1439" alt="CREATE - Make New Database" src="https://github.com/user-attachments/assets/d1913d71-1494-4632-a37f-714832b0ca8c" />
+
+Very nice - but what about if I want to make this database a default database to be able to work in - well that will involve making the schema a default which is as easy as right clicking on the database and selecting the option *Set as Default Schema*.
+
+<img width="1438" alt="Setting Default Schema" src="https://github.com/user-attachments/assets/ed542708-a303-4bdb-9252-b47365dbf696" />
+
+Cool - I'm finding SQL so far to be quite enjoyable - so lets see what the next blog entry brings!
+
+## Blog Entry - 09/02/2025
+
+## Managing Tables in SQL
+
+
