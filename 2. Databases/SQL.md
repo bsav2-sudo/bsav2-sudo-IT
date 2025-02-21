@@ -271,4 +271,44 @@ Cool - I'm finding SQL so far to be quite enjoyable - so lets see what the next 
 
 ## Managing Tables in SQL
 
+One more thing that I want to do before moving onto the admin side of SQL is looking more at managing the tables within a database - being able to manipulate them from the CLI interface and being able to make changes easily. This might be one of the last topics I cover in this blog in terms of being hands on with new commands for SQL - after this I want to learn how to be able to maintain and service the SQL database - such as version control and also user control.
 
+All of the commands for editing tables can be used in the CLI and when I've practiced them they are quite good to use - the only thing is I need to be able to see what changes I've made to the tables as entering the command isn't enough for me. So lets get started with some of the simple commands for editing the tables:
+
+This first one lets me add collumns to the end of the table - simple way of adding more collumns to a table:
+
+<img width="375" alt="COLUMN - Add to End" src="https://github.com/user-attachments/assets/d98dc97f-02bf-488b-acc3-2de6a81c5fba" />
+
+This is the result of running this command:
+
+<img width="501" alt="COLUMN - Add to End Evidence" src="https://github.com/user-attachments/assets/7312d4b8-77be-4c4a-a891-6b1898e681f3" />
+
+Nice and simple, with this next one I'm going to add multiple collumns to an exisiting table with the following command:
+
+<img width="359" alt="COLUMN - Add Multiple Columns" src="https://github.com/user-attachments/assets/86f52430-06d9-418e-85d6-679661b1f25c" />
+
+And has it worked?
+
+<img width="510" alt="COLUMN - Add Multiple Columns Evidence" src="https://github.com/user-attachments/assets/50dadcc5-b0fc-40ba-8a53-12cdc7834dec" />
+
+Yep I can see these have been added, awesome! Let's say I decide I don't want to have a collumn in there any more - all I need to do is do a DROP command for the collumn I want to delete:
+
+<img width="347" alt="COLUMN - Drop a Column" src="https://github.com/user-attachments/assets/86662540-7648-4bfb-bce3-1cbfb7f4f9ba" />
+
+Cool - now lets do some modifications to the collumns - starting simple with just one of the collumns by changing it to NOT NULL:
+
+<img width="527" alt="COLUMN - Modify a Collumn" src="https://github.com/user-attachments/assets/bb8f0f51-0cba-46cc-a3dd-e4b39a75b4d3" />
+
+Nice easy update - lets do two at the same time and re-arrange one of the collumns as well:
+
+<img width="552" alt="COLUMN - Modify multiple collumns" src="https://github.com/user-attachments/assets/502e57de-9a3c-4cb6-bd94-808e4c40c1ce" />
+
+And while I'm here I want one of the collumns to auto-increment:
+
+<img width="421" alt="AUTO INCREMENT - On existing Column" src="https://github.com/user-attachments/assets/ad8c2549-20ac-42fb-b544-9473123ee183" />
+
+Nice a little to get my head around but with practice I'm sure I can get it - just for this last bit I also just want to have a look at the data types for mySQL. From doing my research I as able to find these nice little sheet that shows all of the data types available - as you can see from the screeenshot below, mySQL supports a good range of data types with even levels to different types such as SMALLINT to BIGINT and even having different formats for Date and Time data.
+
+![mysqldatatypes](https://github.com/user-attachments/assets/1b2984f9-51e6-4380-a203-dc125653abe2)
+
+Cool - and that is where I will end it today - I have a lot coming uo in terms of work so for now I'm going to take a break from SQL for a little while and come back when I have some more free time and start looking at the administrative side of mySQL. Thanks for reading so far 😃.
