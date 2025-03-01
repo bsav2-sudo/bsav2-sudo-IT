@@ -312,3 +312,51 @@ Nice a little to get my head around but with practice I'm sure I can get it - ju
 ![mysqldatatypes](https://github.com/user-attachments/assets/1b2984f9-51e6-4380-a203-dc125653abe2)
 
 Cool - and that is where I will end it today - I have a lot coming uo in terms of work so for now I'm going to take a break from SQL for a little while and come back when I have some more free time and start looking at the administrative side of mySQL. Thanks for reading so far 😃.
+
+## Blog Entry - 22/02/25
+
+It's been a while I think! Being busy with work and all the projects going on it has been a nightmare to just sit down and get back to looking at the admin behind SQL datbases. But if you are reading this then it means I've found the time to do it and write it up. Now that I have got the basic functions and commands for SQL under my belt I now want to look at the admin behind SQL from being able to do updates on an SQL upgrade to adding and managing users as part of the SQL database. So without further ado lets get started!
+
+## Binary logs in SQL
+
+In SQL - binary logs are basically the log events of SQL - they are logs of events that have happened in a database such as tables being created to data being edited in the tables. From an admin and security standpoint it is highly needed to know when any sort of change has taken place and whether it is malicious or not - sort of links back to the three A's in Cybersecurity. In my test lab I can have a look to see if I have Binary Logs enabled by using the <code> show global variables like 'log_bin' </code> which will return the value as being either on or off.
+
+<img width="715" alt="Binary Logs Enabled" src="https://github.com/user-attachments/assets/ff9a4df3-d822-4ba2-aef6-1cde498a87a6" />
+
+As you can see from the screenshot the binary logs in my test database are already enabled - so binary logs are being created when any changes are being made to the database, if I want to see all of the binary logs I can issue the <code> SHOW BINARY LOGS </code> command which will return the log_name, File_size and if the log is Encrypted or not.
+
+<img width="497" alt="SHOW - Binary Logs" src="https://github.com/user-attachments/assets/a203b97a-445f-49e3-bb6f-ff6996a1baf5" />
+
+If I also want to see what format the Binary Logs are in - I can issue the command <code> show global variables like 'binlog_format' </code>.
+
+<img width="448" alt="Binary Log Format " src="https://github.com/user-attachments/assets/aaa22b01-3433-4aaf-98c4-8b12ff3c654b" />
+
+Now if I want to delete logs let say because I no longer need them - I can issue the <code> FLUSH BINARY LOGS </code> command which will do exactly as it says - flush the binary logs.
+
+<img width="319" alt="FLUSH - Binary Logs" src="https://github.com/user-attachments/assets/53c754cc-5541-4857-a072-f0ca3701146d" />
+
+Now the final command I want to look at is just to disable the binary logs - I doubt this is something I would want to do but you never know:
+
+<img width="470" alt="DISABLE - Binary Logs" src="https://github.com/user-attachments/assets/672dbb6e-a4ba-4cdf-95b1-98a05d2e1c09" />
+
+## Configuration in SQL
+
+Now that I've looked at Binary logs in SQL - it's time to look at the configuraiton in SQL. mySQL has a configuration file which can be used to tune parts of how mySQL works - such as being able to connect to servers and also enabling plugins and ports for SQL to listen on.
+
+The main configuration file I'm going to focus on is the my.ini file - this file lets me do some configurations so lets go!
+
+<img width="1439" alt="File Open" src="https://github.com/user-attachments/assets/56c01b13-3ba8-4431-9265-355b8d870a5d" />
+
+As you can see from the above screenshot I've just got the file open in Notepad application - just easy to edit it this way - I don't really want to edit anything because the mySQL server is running fine and I'm happy with the config as it is but it is good to see parts that I might want to look at later.
+
+<img width="1439" alt="Server Section" src="https://github.com/user-attachments/assets/9e86b061-4d40-4e42-9aa6-8035ec828a0e" />
+
+One of these parts being the SQL server configuration where I can change which TCP/IP port mySQL server will listen to, paths to database root and more.
+
+<img width="1439" alt="Optional Parts of Config File" src="https://github.com/user-attachments/assets/9c3a0607-ed4d-4b2e-af5e-3c5d318ce4c8" />
+
+And also some of the optional parts which I can edit and enable in mySQL such as buffers etc.
+
+## User Management in SQL
+
+
