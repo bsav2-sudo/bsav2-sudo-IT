@@ -61,8 +61,37 @@ Now between the time of putting the work notes up on ServiceNow and the supplier
 
 ### 13:30pm Supplier arrives 🕜
 
+The time is now 13:30pm and the supplier has arrived onto site and we start to troubleshoot what could be going on. At this point it was good to have the supplier as I could actually see the logs that he was recieiving as well as working with another person to try and resolve the issue. The weird issue that we had was there was no logs for anything like a brute-force attack or any sort of flood taking place that would cause the switch to crash after 2 minutes. For the next few hours we just tried to rule out everything it could be such as any network loopback taking place on the network - this of course would only take place on the WIFI as the Ethernet was still working on site - this meant we tried to ping the Switch and restart the AP's to see if we got any logs of a network loop taking place. When we conducted this test - we tried it 3 times and still got the same result in which we would lose any ICMP pings to the switch two minutes after the AP's restarted.
 
+### 16:30pm Start to get serious 🕟
 
+By this time all the troubleshooting we had completed pointed to nothing that was taking place - which now meant we had to isolate exactly what was happening and the best we way decided to do that was to start from scratch. Because the topology is quite simple for the site - we decided to disconnect uplinks to the three other blocks and isolate one of the blocks so we can't get any interference from any of the other AP's on site and focus on one specific area.
 
+To go further as well we unplugged all the AP's in the block going to the switch and decided to go one by one to see when exactly the switch would crash AP by AP. It sounds like a tedious process and trust me it was but this is the only way we could pinpoint what changes were being made on the network to cause the crash. So first we plugged in the first AP and had a ping test to the switch running in the background to note when the switch would crash - and within two minutes we started to get dropped ICMP packets to the switch and noted the switch had crashed. Now this was with just one AP being plugged into the switch which we decided could only point to one thing - the firmware update had caused something to go wrong. First time I have ever experienced this and I must say it is an eye opener - the only time I have seen this ever is with the [Crowdstrike Patch](https://www.techtarget.com/whatis/feature/Explaining-the-largest-IT-outage-in-history-and-whats-next) in which major infastructure went down as part of a routine update - but obviously we were dealing with it on a smaller scale.
 
+So off to the NETGEAR website we went - every single forum has anyone else got the same issue that we are having - is there a known bug in the firmware? The short answer after 30 minutes of research - no. Nobody in the world has resported their being an issue and the only bugs fixes that had been reported were only to do with everything but our issue [Netgear Firmware Release Notes](https://kb.netgear.com/000066571/WAX625-Firmware-version-10-8-12-7). Great. So for now we are on our own on this one.
+
+### 17:45pm Time to try and get a level of service 🕠
+
+Now it was getting close to staff leaving and stakeholders arriving back on site coming back to no WIFI service at all - this was a major problem and we needed to do something about it and find a workaround quick until we could contact NETGEAR and let them know about the issue - againt time as well as we started to get report after report of people not being able to get access to WIFI. This is where we both had a brain wave - the only issue we could see was when we plugged into the POE++ switch with the WAX625 AP's - but these POE++ Switches were only added as part of an upgrade to able to provide 60W to each AP - before that they were running on a POE+ switch which delivers 30W per port and the POE+ switches are still in place in the blocks as they were never removed. So we decided to grab one of the accessible AP's from the main block and take it to the other blocks that has the POE+ switch in the cabinet with the uplinks back in place. After 10 mins and getting the AP on - we had no crashes from the switch and the AP stayed online 😐. I didn't want to get my hopes just yet but it was the first positive sign I had seen in 10 hours on site - but other issues may come for us such as POE issues - but we added 5 x more AP's in the building and see what happened. And guess what - after 15 mins of stability testing they stayed online and the POE+ Switch didn't crash! 
+
+Now we were getting somewhere - we decided to go around each block and plug all AP's into the POE+ switches in the cabinets - and after 20 mins the three blocks were online and stable! It's a temporary fix but it was working apart from one small issue - there is one block that doesn't have the POE+ switch. Not good - and I couldn't source a POE+ switch in such short notice to get it back online tonight and would require intervention from the main base to send one up on Monday - to resolve the issue I made sure all staff members were on Ethernet connections so they can at least access their work computers and work in the meantime. 
+
+The time is now 18:36 and it was time to leave site - we raised the incident with Netgear and tried to get it raised as an urgent incident - I updated my team in main base on the situation and they were happy with the level of service we were able to get back and thankful for me staying that long on site.
+
+![Nick Thanks](https://github.com/user-attachments/assets/cfa6f0b6-8d94-4cf8-a7ac-20b30cb8d07f)
+
+![Gareth Thanks](https://github.com/user-attachments/assets/a6ae1e70-43bd-4f84-a3dc-d27a03ed5312)
+
+![All Thanks](https://github.com/user-attachments/assets/6b43000e-8ad8-4b0b-91da-637c47e4457d)
+
+From here - it is time to let Netgear investigate the issue and come up with either a temporary or complete fix. The biggest lesson I've learnt on this day - expect the unexpected...
+
+## Update - 17/3/25
+
+It is now two weeks later and a lot of things have happened - the first thing is the WIFI is now at full service across each block in the site. NETGEAR are still investigating the fimrware issue but issued a temporary fix to put all the AP's back on the POE++ switches which worked and was implemented on 13/3/25. NETGEAR escalated the incident to their Level 4 tier and was dealt with as a major incident - even in their labs it took them around 2 weeks to replicate the issue and in the end altered their firmware slightly to push back to all AP's.
+
+The whole situation took two weeks to resolve which isn't ideal however I was relying on external sources 90% of the time to configure something their end on top of dealing with my BAU tasks on site keeping this state as a Major Incident. The firmware is still under investigation but a user in USA reported the same issue W.C. 10th March 25 - glad to know it wasn't just us having the issue - a learning curve and a half for me :)
+
+Thanks for reading!
 
