@@ -95,3 +95,30 @@ The whole situation took two weeks to resolve which isn't ideal however I was re
 
 Thanks for reading!
 
+## Blog Entry - 18/03/25
+
+In this scenario, I was tasked to look at the CCTV for one of our sites - omore specifically 3 of the IP cameras were failing to come online within the DVR system. The 3 camera's are on a different part of the site and travel through the network while the other camera's are connected directly to the DVR. The call out originally came from a user reporting a faulty device which then developed when the fault occured. Again this system is managed by an external company so I have no acess to admin accounts, systems etc. Luckily there was an engineer from the company on site so I could ask him to  ake any chnages that needed to be made.
+
+My first thoughts when seeing this situation was - what is the network situation on this CCTV? When I asked the engineer to use the SDAP tool, we foound that the 7 cameras plugged directly into the DVR came up with an IP range of 192.168.2.0/24 with the DVR being seen on the network but with no set IP address and no DG. Strange. On the site we don't use the 192.168.2/24 range - instead we use the Class A private range of 10.0.0.0/24. So the fact the DVR didn't have an IP and all the direct cameras were on a different range was what I should say as being different.
+
+The only thing that came to my mind was that the DVR was acting as a DHCP server for the cameras directly in. I don't have much experience in CCTV but it is the only logical thing I could think of. So we need to get the DVR on the same network as the 3 external cameras and then get the camera switch onto the network. So to test that this would work - we plugged the engineers laptop into the uplink of the switch and run a ipconfig to see that we would get an IP address in the 10. range. 
+
+When we run this test - sure enough we got the 10. address. So the plan of attack:
+
+- Change the DVR patch from the switch to the router where it would gain a 10. address
+- Allocate the DVR a 10. address using DHCP
+- Plug the camera switch into the uplink on the switch in the other building
+- Run SDAP and see the results.
+
+This excellent drawing should display what we were trying to achieve 
+
+![Epic Diagram that makes sense to me](https://github.com/user-attachments/assets/e127196d-9b77-4a5a-8fb4-51bdb1bdc7cc)
+
+And sure enough after we did this and run the SDAP - we then seen the three camera's appear - but with a few little issues:
+
+- Once came on staright away
+- Two of them came on SDAP but with 192.168.2/24 IP's
+
+Okay, so lets get them onto a 10. IP address. When going onto the CCTV console - these camera's have been saved to have a 10. address anyways so I just needed to match them up on the camera themselves. One of them changed IP address, Subnet Mask and Default Gateway with no problems however the last one kept rejecting the changes. Now we thought there was an IP conflict but after investogation we found the last camera just needed a reset - and then we had all 3 cameras back!
+
+The lesson from this one - check the basics first before going too far in. Check IP ranges, Check Manufcturers website, Run ping tests. 😄
